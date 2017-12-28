@@ -1,6 +1,7 @@
 ---
 title: "Artist Popularity Trajectory Using Spotify API"
 author: "David Gibson"
+
 output: pdf_document
 ---
 ```{r setup, include=FALSE}
@@ -18,11 +19,11 @@ Whenever I hear people talk about music and musicians I always hear "Their older
 
 I am an avid Spotify user, so I was immediately drawn to the Spotify API. Unfortunately, there is no true measure of how good or bad a song is. Fortunately, the API provides a popularity rating for each artist, track, and album. Spotify defines popularity as a value between 0 and 100, with 100 being the most popular. The popularity is calculated by an algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are. For this analysis, popularity is not an ideal measure because it is not a true measure of how good a song is but there is still valuable insight to be gained. Keep this in mind when moving forward
 
-As for which artists analysis, I decided to us all the artists on the [Billboards Greatest Artists of All Time](http://www.billboard.com/charts/greatest-hot-100-artists). This list includes 100 artists from a variety of genres and multiple decades. 
+As for which artists analysis, I decided to us all the artists on the [Billboards Greatest Artists of All Time](http://www.billboard.com/charts/greatest-hot-100-artists). This list includes 100 artists from a variety of genres and multiple decades.
 
 Five artists are missing from the dataset because I was unable to retrieve their albums from the API. These artists include Elvis Presley, The Rolling Stones, The Beach Boys, James Brown and JAY Z.
 
-For each of the 95 artists, I pulled all their albums from Spotify. I then removed any live albums, remastered albums with a non-original release date and duplicate albums keeping the more popular album. For each artist, I also calculated their number of albums released and career length in years. 
+For each of the 95 artists, I pulled all their albums from Spotify. I then removed any live albums, remastered albums with a non-original release date and duplicate albums keeping the more popular album. For each artist, I also calculated their number of albums released and career length in years.
 
 ## Calculating Artist Popularity Trajectory
 
@@ -30,7 +31,7 @@ To determine if an artist's album popularity is increasing or decreasing over ti
 
 Note: Using linear regression is not ideal with time-series data, but I am currently looking into other techniques.
 
-Below we can see all 95 artist's and their slopes. 
+Below we can see all 95 artist's and their slopes.
 
 ```{r, fig.height=15, fig.width=12,message=FALSE, warning=FALSE, echo=FALSE}
 all_artists_bar
@@ -38,7 +39,7 @@ all_artists_bar
 
 \newpage
 
-## Initial Findings 
+## Initial Findings
 
 The first thing to look at is to see how many negative and positive slopes there are out of the 95 artists.
 
@@ -48,19 +49,19 @@ slope_bar
 
 As you can see the majority of artists have a negative slope meaning that most artist's more popular music is earlier in their career. Specifically, 55 out of the 95 artists have a negative slope. This would support the hypothesis I have heard about artists making "better" music earlier in their career.
 
-Another critical measure is to look at how distributed the slopes are. This can be achieved with a histogram. 
+Another critical measure is to look at how distributed the slopes are. This can be achieved with a histogram.
 
 ```{r, fig.width=12,message=FALSE, warning=FALSE, echo=FALSE}
 slope_hist
 ```
 
-From the histogram above we see that most of the slopes are around 0 with the majority being negative. What this tells us is that there is usually a steady increase or decrease in popularity over time. Regarding music, this may indicate a gradual change in sound or no change at all, but it is unlikely that these artists had a drastic change in sound. 
+From the histogram above we see that most of the slopes are around 0 with the majority being negative. What this tells us is that there is usually a steady increase or decrease in popularity over time. Regarding music, this may indicate a gradual change in sound or no change at all, but it is unlikely that these artists had a drastic change in sound.
 
 \newpage
 
-## Career Length 
+## Career Length
 
-Now that we have a sense of the data lets look a little deeper into why some artists may have a negative or positive slope. First, we can look at the length of careers. 
+Now that we have a sense of the data lets look a little deeper into why some artists may have a negative or positive slope. First, we can look at the length of careers.
 
 ```{r, fig.width=12,message=FALSE, warning=FALSE, echo=FALSE}
 slope_bar_year
@@ -68,9 +69,9 @@ slope_bar_year
 
 Interestingly enough artists with a length of ten or less and fifty Plus both have more positive slopes. This would make sense for artist's with less than ten years because to make the Billboard Top 100 they must have been extremely talented artists and likely became popular very quickly. As for 50 plus, this could account for loyal fans that will always listen to that one artist no matter the quality of the album. Yet, the vast majority of artists with careers from ten to fifty years have negative slopes.
 
-## Album Count 
+## Album Count
 
-To explore the relationship between the number of albums an artist produces and the slope we can plot both features on a scatter plot. 
+To explore the relationship between the number of albums an artist produces and the slope we can plot both features on a scatter plot.
 
 ```{r, fig.width=12,message=FALSE, warning=FALSE, echo=FALSE}
 album_count_slope
@@ -96,4 +97,6 @@ Thank you,
 
 David Gibson
 
-Davidgibsonp@gmail.com
+[Contact Me](Davidgibsonp@gmail.com)
+
+[Github Repo](https://github.com/davidgibsonp/spotify_artist_trajectory)
