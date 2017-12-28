@@ -97,6 +97,6 @@ Thank you,
 
 David Gibson
 
-[Contact Me](Davidgibsonp@gmail.com)
+Davidgibsonp@gmail.com
 
 [Github Repo](https://github.com/davidgibsonp/spotify_artist_trajectory)
